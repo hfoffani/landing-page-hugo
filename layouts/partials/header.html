@@ -25,9 +25,18 @@
                     <a class="page-scroll" href="#contact"> {{ .Site.Params.contactMenu }} </a>
                 </li>
                 {{ end }}
-                <li> <a href="/es/" class="language" rel="es-ES">ES</a></li>
-                <li> <a href="/fr/" class="language" rel="fr-FR">FR</a></li>
-                <li> <a href="/en/" class="language" rel="en-US">EN</a></li>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                            > {{ .Site.Params.Languages }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                        {{ range $lang := .Site.Params.AvailableLangs }}
+                            <li> <a href="/{{ slicestr $lang 0 2 | lower }}/" class="language"> {{ $lang }} </a></li>
+                        {{ end }}
+                        </ul>
+                    </li>
+                </ul>
 
             </ul>
         </div>
