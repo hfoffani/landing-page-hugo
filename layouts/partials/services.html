@@ -14,9 +14,13 @@
                     <h2 class="section-heading">{{ .Title }}</h2>
                     {{ .Content }}
                 </div>
-                {{ with .Params.img }}
+                {{ if (isset .Params "img") }}
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/{{ . }}" alt="">
+                    {{ if (isset .Params "imgurl") }}
+                    <a href="{{ .Params.imgurl }}"><img class="img-responsive" src="img/{{ .Params.img }}" alt=""></a>
+                    {{ else }}
+                    <img class="img-responsive" src="img/{{ .Params.img }}" alt="">
+                    {{ end }}
                 </div>
                 {{ end }}
             </div>
@@ -39,9 +43,13 @@
                     <h2 class="section-heading">{{ .Title }}</h2>
                     {{ .Content }}
                 </div>
-                {{ with .Params.img }}
+                {{ if (isset .Params "img") }}
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                  <img class="img-responsive" src="img/{{ . }}" alt="">
+                    {{ if (isset .Params "imgurl") }}
+                    <a href="{{ .Params.imgurl }}"><img class="img-responsive" src="img/{{ .Params.img }}" alt=""></a>
+                    {{ else }}
+                    <img class="img-responsive" src="img/{{ .Params.img }}" alt="">
+                    {{ end }}
                 </div>
                 {{ end }}
             </div>
