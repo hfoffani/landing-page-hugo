@@ -8,6 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="{{ .Site.BaseURL }}">
+
+    {{ if .IsPage }}
+    {{ if isset .Params "sectionanchor" }}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="0; url= {{ $.Site.BaseURL }}{{ .Lang }}/#{{ .Params.sectionanchor }} "/>
+    {{ end  }}
+    {{ end  }}
+
     <title>{{ .Title }}</title>
 
     <!-- Bootstrap Core CSS -->
