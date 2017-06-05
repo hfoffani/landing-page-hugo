@@ -15,12 +15,21 @@
                     <li>
                         <a class="page-scroll" href="#services"> {{ .Site.Params.servicesMenu }} </a>
                     </li>
+
+                    {{ if isset .Site.Params "news" }}
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a class="page-scroll" href="#news"> {{ .Site.Params.newsMenu }} </a>
+                    </li>
+                    {{ end }}
+
                     {{ if isset .Site.Params "social" }}
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
                         <a class="page-scroll" href="#contact"> {{ .Site.Params.contactMenu }} </a>
                     </li>
                     {{ end }}
+
                 </ul>
                 <p class="copyright text-muted small">Copyright &copy; {{ .Title }} All Rights Reserved</p>
             </div>

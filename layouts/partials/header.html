@@ -20,21 +20,28 @@
                 <li>
                     <a class="page-scroll" href="#services"> {{ .Site.Params.servicesMenu }} </a>
                 </li>
+
+                {{ if isset .Site.Params "news" }}
+                <li>
+                    <a class="page-scroll" href="#news"> {{ .Site.Params.newsMenu }} </a>
+                </li>
+                {{ end }}
+
                 {{ if isset .Site.Params "social" }}
                 <li>
                     <a class="page-scroll" href="#contact"> {{ .Site.Params.contactMenu }} </a>
                 </li>
                 {{ end }}
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ .Site.Params.languagesMenu }}
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                        {{ range $lang := .Site.Params.AvailableLangs }}
-                            <li> <a href="/{{ slicestr $lang 0 2 | lower }}/" class="language"> {{ $lang }} </a></li>
-                        {{ end }}
-                        </ul>
-                    </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ .Site.Params.languagesMenu }}
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                    {{ range $lang := .Site.Params.AvailableLangs }}
+                        <li> <a href="/{{ slicestr $lang 0 2 | lower }}/" class="language"> {{ $lang }} </a></li>
+                    {{ end }}
+                    </ul>
+                </li>
 
             </ul>
         </div>
@@ -54,12 +61,15 @@
 			<div class="intro-message">
 			    <h1>{{ .Site.Title }}</h1>
 			    <h3>{{ .Site.Params.description }}</h3>
+
 			    <hr class="intro-divider">
+
 			    {{ if isset .Site.Params "social" }}
 			    <ul class="list-inline intro-social-buttons">
 				        {{ partial "social.html" . }}
 			    </ul>
 			    {{ end }}
+
 			</div>
 		    </div>
 		</div>
